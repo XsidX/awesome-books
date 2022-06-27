@@ -1,7 +1,7 @@
 {
   "name": "awesome-books",
   "version": "1.0.0",
-  "description": "![](https://img.shields.io/badge/Microverse-blueviolet)",
+  "description": "In this project, we build a basic website that allows users to add/remove books from a list. We achieve that by using JavaScript objects and arrays. We also dynamically modify the DOM and add basic events.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
