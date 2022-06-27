@@ -1,0 +1,4 @@
+#ignore this!!
+node_modules/
+.hintrc
+.stylelintrc.json
