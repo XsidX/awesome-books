@@ -4,22 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css">
-    <script src="awesomeBooks.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="awesomeBooks.js" defer></script>
     <title>Awesome Books</title>
   </head>
   <body>
     <main>
-      <div class="container">
-        <h1 class="title">Awesome books</h1>
-        <form action="#" id="form">
-          <input type="text" name="title" id="title" placeholder="title" /><br><br>
+      <h1 class="title">All awesome books</h1>
+      <div class="container"></div>
+      <div class="line"></div>
+      <form action="#" id="form">
+        <label for="add a new book">Add a new book </label>
+        <input type="text" name="title" id="title" placeholder="Title" />
 
-          <input type="text" name="auhtor" id="author" placeholder="author" /><br><br>
+        <input type="text" name="auhtor" id="author" placeholder="Author" />
 
-          <button type="submit">Add</button>
-        </form>
-      </div>
+        <button type="submit">Add</button>
+      </form>
     </main>
   </body>
 </html>
