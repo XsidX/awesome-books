@@ -2,3 +2,90 @@ body {
   margin: 0;
   padding: 0;
 }
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+form {
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 0;
+  }
+}
+.container {
+  /* padding: 16px; */
+  min-width: 400px;
+  border: solid black 1px;
+}
+
+h1 {
+  font-size: 16px;
+}
+
+.container ul {
+  position: relative;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.container ul:nth-child(odd) {
+  background-color: #e6e6fa;
+}
+
+.container ul > button {
+  position: absolute;
+  right: 12px;
+  box-shadow: 2px 2px #000;
+  max-height: 15px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.container li {
+  padding: 0 10px 0 5px;
+}
+
+.line {
+  margin-top: 25px;
+  height: 1px;
+  width: 60px;
+  background-color: black;
+  box-shadow: 1px 1px #000;
+}
+
+form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 8px;
+}
+
+form label {
+  font-weight: 800;
+}
+
+form input {
+  border: 1px solid #000;
+  font-size: 10px;
+  padding: 2px 5px;
+}
+
+form button {
+  max-width: 40px;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  bottom: -25px;
+  box-shadow: 2px 2px #000;
+  cursor: pointer;
+}
