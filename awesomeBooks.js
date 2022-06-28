@@ -1,38 +1,40 @@
-import Book from "./Book.js";
-import BookStore from "./BookStore.js";
-import UI from "./UI.js";
+import Book from './Book.js';
+import BookStore from './BookStore.js';
+import UI from './UI.js';
 
 // Event: Add Button
-document.querySelector("#form").addEventListener("submit", (e) => {
+document.querySelector('#form').addEventListener('submit', (e) => {
   // Prevent default submission
   e.preventDefault();
 
   // get values
-  const title = document.querySelector("#title").value;
-  const author = document.querySelector("#author").value;
+  const title = document.querySelector('#title').value;
+  const author = document.querySelector('#author').value;
 
-  const book = new Book(title, author);
+  // Validate
+  if (title === '' || author === '') {
+    UI.showAlert('Please fill in all fields', 'alert');
+  } else {
+    const book = new Book(title, author);
 
-  UI.addBookToUI(book);
+    UI.addBookToUI(book);
 
-  BookStore.addBookToStore(book);
+    BookStore.addBookToStore(book);
+
+    UI.clearFields();
+  }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   UI.displayBooks();
 });
 
 // Event Remove book
-document.querySelector(".container").addEventListener("click", (e) => {
+document.querySelector('.container').addEventListener('click', (e) => {
   // remove from ui
   UI.removeBook(e.target);
 
   // remove from local storage
-
-  BookStore.removeBook(
-    e.target.previousElementSibling.previousElementSibling.textContent.replace(
-      /[/W_]+/g,
-      ""
-    )
-  );
+  const title = e.target.previousElementSibling.previousElementSibling.textContent.replace(/[^a-z0-9]/gi, '');
+  BookStore.removeBook(title);
 });
