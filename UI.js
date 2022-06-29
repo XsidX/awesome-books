@@ -34,11 +34,11 @@ export default class UI {
 
   static showAlert(message, className) {
     const div = document.createElement('div');
-    div.className = `${className}`;
+    div.className = `alert ${className}`;
     div.appendChild(document.createTextNode(message));
-    const container = document.querySelector('.container');
-    const main = document.querySelector('main');
-    main.insertBefore(div, container);
+    const body = document.querySelector('body');
+    const form = document.querySelector('#add-book');
+    body.insertBefore(div, form);
 
     setTimeout(() => document.querySelector('.alert').remove(), 3000);
   }
