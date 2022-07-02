@@ -13,21 +13,21 @@
         <nav class="nav-bar">
           <a href="/" class="logo">Awesome Books</a>
           <ul class="nav-items">
-            <li class="nav-links list-book active"><a href="">List</a></li>
-            <li class="nav-links add-new"><a href="">Add new</a></li>
-            <li class="nav-links contact-link"><a href="">Contact</a></li>
+            <li class="nav-links list-book active" data-tab="1"><a href="">List</a></li>
+            <li class="nav-links add-new" data-tab="2"><a href="">Add new</a></li>
+            <li class="nav-links contact-link" data-tab="3"><a href="">Contact</a></li>
           </ul>
         </nav>
         <p class="date"></p>
       </header>
-      <section id="view-book" class="book-list-wrapper">
+      <section id="view-book" class="section section-1 book-list-wrapper display-none display-flex">
         <div class="book-list">
           <h1 class="title">All awesome books</h1>
           <div class="container">
           </div>
         </div>
       </section>
-      <section id="add-book" class="content-container display-none">
+      <section id="add-book" class="section section-2 content-container display-none">
         <h2>Add a new book</h2>
         <form action="#" id="form"> 
           <input type="text" name="title" id="title" placeholder="Title" />
@@ -37,7 +37,7 @@
           <button type="submit">Add</button>
         </form>
       </section>
-      <section id="contact" class="content-container display-none">
+      <section id="contact" class="section section-3 content-container display-none">
           <div class="contact-container">
             <h2>
               Contact information

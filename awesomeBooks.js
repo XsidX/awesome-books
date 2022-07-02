@@ -2,45 +2,21 @@ import Book from './Book.js';
 import BookStore from './BookStore.js';
 import UI from './UI.js';
 
-const bookList = document.querySelector('#view-book');
-const form = document.querySelector('#add-book');
-const contact = document.querySelector('#contact');
+const navItems = document.querySelector('.nav-items');
+const navLinks = document.querySelectorAll('.nav-links');
+const sections = document.querySelectorAll('.section');
 
-const listLink = document.querySelector('.list-book');
-const addBookLink = document.querySelector('.add-new');
-const contactLink = document.querySelector('.contact-link');
-
-listLink.addEventListener('click', (e) => {
+navItems.addEventListener('click', (e) => {
   e.preventDefault();
-  listLink.classList.add('active');
-  addBookLink.classList.remove('active');
-  contactLink.classList.remove('active');
+  const clicked = e.target.closest('.nav-links');
+  if (!clicked.classList.contains('nav-links')) return;
 
-  bookList.className = 'book-list-wrapper display-block';
-  form.className = 'display-none';
-  contact.className = 'display-none';
-});
+  const { tab } = clicked.dataset;
+  navLinks.forEach((link) => link.classList.remove('active'));
+  clicked.classList.add('active');
 
-addBookLink.addEventListener('click', (e) => {
-  e.preventDefault();
-  listLink.classList.remove('active');
-  addBookLink.classList.add('active');
-  contactLink.classList.remove('active');
-
-  form.className = 'display-flex content-container';
-  bookList.className = 'display-none';
-  contact.className = 'display-none';
-});
-
-contactLink.addEventListener('click', (e) => {
-  e.preventDefault();
-  listLink.classList.remove('active');
-  addBookLink.classList.remove('active');
-  contactLink.classList.add('active');
-
-  contact.className = 'display-flex';
-  form.className = 'display-none';
-  bookList.className = 'display-none';
+  sections.forEach((section) => section.classList.remove('display-flex'));
+  document.querySelector(`.section-${tab}`).classList.add('display-flex');
 });
 
 // Event: Add Button
@@ -78,12 +54,26 @@ document.querySelector('.container').addEventListener('click', (e) => {
   UI.removeBook(e.target);
 
   // remove from local storage
-  const title = e.target.previousElementSibling.previousElementSibling.textContent.replace(/[^a-z0-9]/gi, '');
+  const title = e.target.previousElementSibling.previousElementSibling.textContent.replace(
+    /[^a-z0-9]/gi,
+    '',
+  );
   BookStore.removeBook(title);
 });
 
-const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December',
+const monthNames = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
 ];
 const dateObj = new Date();
 const month = monthNames[dateObj.getUTCMonth() + 1]; // months from 1-12

@@ -40,6 +40,10 @@ a {
   display: flex;
 }
 
+.section-1.display-flex {
+  display: block;
+}
+
 .active > a {
   color: rgb(64, 64, 248);
 }
